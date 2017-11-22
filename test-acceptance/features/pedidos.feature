@@ -1,7 +1,7 @@
 Feature: Pedido do cliente
 As a um cliente do sistema Peça Fácil
 I want to poder realizar pedidos de comida, modificá-los e cancelar quando for possível
-That so eu possa gerenciar os pedidos e comprar somente o que eu desejar
+So that eu possa gerenciar os pedidos e comprar somente o que eu desejar
 
 Scenario: Escolher o pedido
 Given o usuário “Diogo” está cadastrado no sistema 
