@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node_modules/gulp/bin/gulp.js scripts",
+    "build": "gulp scripts",
     "start": "node dist/index.js",
-	"bs": "npm run build && npm run start"
+	  "bs": "npm run build && npm run start"
   },
   "author": "Luiz Reis",
   "license": "MIT",
