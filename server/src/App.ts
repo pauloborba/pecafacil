@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
+import { UsuarioRouter } from './routes/UsuarioRouter';
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -44,6 +45,10 @@ class App {
       });
     });
     this.express.use('/', router);
+    const usuarioRoutes = new UsuarioRouter();
+    usuarioRoutes.init();
+  
+    this.express.use('/api/v1/usuarios', usuarioRoutes.router);
   }
 
 }
