@@ -1,0 +1,55 @@
+<html>
+	<table class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr id="colunas">
+				<th>Nome</th>
+				<th>Valor</th>
+				<th>Descrição</th>
+				<th>Itens</th>
+				<th>Tamanho</th>
+				<th>#</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="text" id="nome" class="form-control"></td>
+				<td><input type="number" id="valor" class="form-control"></td>
+				<td><input type="text" id="descricao" class="form-control"></td>
+				<td>
+					<div class="dropdown show">
+						<a class = "btn btn-default dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="itens">Escolher os itens</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<button class="dropdown-item">Feijão</button>
+							<button class="dropdown-item">Arroz</button>	
+							<button class="dropdown-item">Macarrão</button>
+							<button class="dropdown-item">Frango</button>							
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="dropdown show">
+						<a class = "btn btn-default dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="itens">Tamanho</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+							<button class="dropdown-item">Pequeno</button>
+							<button class="dropdown-item">Medio</button>	
+							<button class="dropdown-item">Grande</button>						
+						</div>
+					</div>
+				</td>
+				<td><a (click)="addPrato()" class="fa fa-plus plus" aria-hidden="true">
+				</a></td>
+			</tr>
+			<tr *ngFor = "let a of prato">
+				<td>{{a.nome}}</td>
+				<td>{{a.valor}}</td>
+				<td>{{a.descricao}}</td>
+				<td>{{a.itens}}</td>
+				<td>{{a.tamanho}}</td>
+				<td>
+					<a class="fa fa-trash-o icon-trash icon" aria-hidden="true"></a>
+					<a class="fa fa-pencil icon-pencil icon" aria-hidden="true"></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</html>

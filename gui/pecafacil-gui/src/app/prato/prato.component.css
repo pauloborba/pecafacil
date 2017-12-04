@@ -1,0 +1,31 @@
+#colunas{
+	text-align: center;
+}
+
+.plus{
+	text-align: center;
+	cursor: pointer;
+	margin: 5px;
+	font-size: 30px;
+}
+
+.icon {
+	width: 40%;
+	height: 100%;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.icon:hover {
+	color: red;
+}
+
+.icon-trash{
+	text-align:left;
+}
+
+.icon-pencil{
+	text-align: right;
+		
+}
+
