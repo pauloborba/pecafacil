@@ -3,6 +3,14 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import { UsuarioRouter } from './routes/UsuarioRouter';
+import { PratoRouter } from './routes/PratoRouter';
+import { ClienteRouter } from './routes/ClienteRouter'
+import { FornecedorRouter } from './routes/FornecedorRouter'
+import { ItemRouter } from './routes/ItemRouter'
+import { LocalEntregaRouter } from './routes/LocalEntregaRouter'
+import { PedidoRouter } from './routes/PedidoRouter'
+
+
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 
@@ -54,10 +62,27 @@ class App {
     this.express.use('/', router);
     const usuarioRoutes = new UsuarioRouter();
     usuarioRoutes.init();
-  
     this.express.use('/api/v1/usuarios', usuarioRoutes.router);
+    const pratoRoutes = new PratoRouter();
+    pratoRoutes.init();
+    this.express.use('/api/v1/pratos', pratoRoutes.router);
+    const clienteRoutes = new ClienteRouter();
+    clienteRoutes.init();
+    this.express.use('/api/v1/clientes', clienteRoutes.router);
+    const fornecedorRoutes = new FornecedorRouter();
+    fornecedorRoutes.init();
+    this.express.use('/api/v1/fornecedores', fornecedorRoutes.router);
+    const itemRoutes = new ItemRouter();
+    itemRoutes.init();
+    this.express.use('/api/v1/itens', itemRoutes.router);
+    const localEntregaRouter = new LocalEntregaRouter();
+    localEntregaRouter.init();
+    this.express.use('/api/v1/locaisEntregas', localEntregaRouter.router);
+    const pedidoRouter = new PedidoRouter();
+    pedidoRouter.init();
+    this.express.use('/api/v1/pedidos', pedidoRouter.router);
   }
 
-}
+  }
 
 export default new App().express;
