@@ -3,6 +3,8 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import { UsuarioRouter } from './routes/UsuarioRouter';
+import "reflect-metadata";
+import {createConnection} from "typeorm";
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -15,6 +17,11 @@ class App {
     this.express = express();
     this.middleware();
     this.routes();
+    this.configDatabase();
+  }
+
+  private async configDatabase(){
+    await createConnection();
   }
 
 	private allowCrossDomain = function(req: any, res: any, next: any) {

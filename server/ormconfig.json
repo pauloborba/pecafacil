@@ -1,0 +1,13 @@
+{
+    "type": "mysql",
+    "host": "172.22.37.171",
+    "port": 3306,
+    "username": "root",
+    "password": "root",
+    "database": "pecafacildb",
+    "synchronize": false,
+    "logging": false,
+    "entities": [
+       "dist/models/**/*.js"
+    ]
+ }

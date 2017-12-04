@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp scripts",
     "start": "node dist/index.js",
-	  "bs": "npm run build && npm run start"
+    "bs": "npm run build && npm run start"
   },
   "author": "Luiz Reis",
   "license": "MIT",
@@ -25,6 +25,9 @@
     "body-parser": "^1.15.2",
     "debug": "^3.1.0",
     "express": "^4.14.0",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "mysql": "^2.15.0",
+    "reflect-metadata": "^0.1.10",
+    "typeorm": "^0.1.7"
   }
 }

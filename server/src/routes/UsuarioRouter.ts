@@ -22,6 +22,8 @@ export class UsuarioRouter {
    */
   init() {
     this.router.get('/', this.usuarioController.getAll);
+    this.router.get('/:id', this.usuarioController.getById);
+    this.router.post('/', this.usuarioController.insert);
   }
 
 }
