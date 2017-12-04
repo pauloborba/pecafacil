@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-prato',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PratoComponent implements OnInit {
 
-	prato = [];
+	pratos = [];
 
-  constructor() { }
+  constructor(private apiService: ApiService) { 
+
+	}
   
   public addPrato() {
   	let nome : any = document.getElementById('nome');
@@ -18,24 +21,26 @@ export class PratoComponent implements OnInit {
   	let dropItem : any = document.getElementById('dropItem');
   	let dropTam : any = document.getElementById('dropTam');
 
-  	console.log(nome.value);
-  	this.prato.push({
-		nome: nome.value,
-		valor: valor.value,
-		descricao: descricao.value,
-		itens: dropItem.value,
-		tamanho: dropTam.value
-	});
+		let prato = {
+			Nome: nome.value,
+			Valor: valor.value,
+			Descricao: descricao.value,
+			Tamanho: dropTam.value
+		};
+		this.apiService.addPrato(prato);
+
+  	this.pratos.push(prato);
   }
 
   public deletePrato(id){
-  	this.prato.splice(id,1);
+  	this.pratos.splice(id,1);
   }
 
   public editPrato(id){}
 
-  ngOnInit() {
-
+  async ngOnInit() {
+		this.pratos = await this.apiService.getPratos();
+		console.log(this.pratos);
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,34 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+	model: any = {};
+	returnUrl: string;
 
-	prato = [{
-		nome: 'Quentinha tradicional',
-		valor: '10 reais',
-		descricao: 'Frango acebolado',
-		itens: 'Feijão, Arroz, Frango acebolado',
-		tamanho: 'Medio'
-	}];
-
-  constructor() { }
-  
-  public addPrato() {
-  	let nome : any = document.getElementById('nome');
-  	let valor : any = document.getElementById('valor');
-  	let descricao : any = document.getElementById('descricao');
-
-  	console.log(nome.value);
-  	this.prato.push({
-		nome: nome.value,
-		valor: valor.value,
-		descricao: descricao.value,
-		itens: 'Feijão, Arroz, Frango acebolado',
-		tamanho: 'Medio'
-	});
-  }
+  constructor(private loginService: LoginService, private router: Router, private route : ActivatedRoute) {
+		this.loginService.logout();
+		this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+	}
 
   ngOnInit() {
-
-  }
-
+		
+	}
+	
+	async onSubmit() {
+		let res = await this.loginService.login(this.model.login, this.model.senha);
+		if(res) {
+			this.router.navigate([this.returnUrl]);
+		}
+		else {
+			alert('falha ao logar');
+		}
+	}
 }

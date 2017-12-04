@@ -1,5 +1,6 @@
 import {Index,Entity, PrimaryColumn, Column, OneToOne, OneToMany, ManyToOne, JoinColumn} from "typeorm";
 import {Pedido} from './Pedido'
+import {Fornecedor} from './Fornecedor'
 import {PratoItem} from './PratoItem'
 
 
@@ -41,13 +42,15 @@ export class Prato {
         nullable:true, 
         })
     Tamanho:string;
-        
+    
+    @ManyToOne(type=>Fornecedor, Fornecedor=>Fornecedor.pratos, { eager: true })
+    @JoinColumn({name: "IdFornecedor"})
+    fornecedor:Fornecedor;
 
    
     @OneToMany(type=>Pedido, pedidos=>pedidos.IdPrato)
     pedidos:Pedido[];
     
-
    
     @OneToMany(type=>PratoItem, pratoitems=>pratoitems.IdPrato)
     pratoitems:PratoItem[];

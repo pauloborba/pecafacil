@@ -30,21 +30,21 @@
 					<div class="col-md-13"  >
 				      <select class="form-control" id="dropTam">
 				        <option class="dropdown-header">Tamanho</option>
-				        <option>Pequeno</option>
-				        <option>Médio</option>
-				        <option>Grande</option>
+				        <option value="p">Pequeno</option>
+				        <option value="m">Médio</option>
+				        <option value="g">Grande</option>
 				      </select>
 					</div>
 				</td>
 				<td><a (click)="addPrato()" class="fa fa-plus plus" aria-hidden="true">
 				</a></td>
 			</tr>
-			<tr *ngFor = "let a of prato; let i = index">
-				<td>{{a.nome}}</td>
-				<td>{{a.valor}}</td>
-				<td>{{a.descricao}}</td>
+			<tr *ngFor = "let a of pratos; let i = index">
+				<td>{{a.Nome}}</td>
+				<td>{{a.Valor}}</td>
+				<td>{{a.Descricao}}</td>
 				<td>{{a.itens}}</td>
-				<td>{{a.tamanho}}</td>
+				<td>{{a.Tamanho}}</td>
 				<td>
 					<a (click)="deletePrato(i)" class="fa fa-trash-o icon-trash icon" aria-hidden="true" id="edit"></a>
 					<a (click)="editPrato()" class="fa fa-pencil icon-pencil icon" aria-hidden="true" id="delete"></a>

@@ -1,5 +1,6 @@
 import {Router, Request, Response, NextFunction} from 'express';
 import {Prato} from '../models/Prato'
+import {Fornecedor} from '../models/Fornecedor'
 import {Helper} from '../Helper'
 import {getConnection, Connection} from "typeorm";
 
@@ -22,12 +23,14 @@ export class PratoController{
    * Insert Prato.
    */
   public async insert(req: Request, res: Response, next: NextFunction) {
-    let prato: Prato = <Prato> req.body;
+    let prato: Prato = Helper.createInstanceFromJson(Prato, req.body);
     const connection: Connection = getConnection();
-    connection.manager.save(prato).then(u => {
-      res.send({"sucesso": true, "Prato": u.Id});
+    let usuario = await connection.manager.findOne(Fornecedor, {Id: req.body['IdFornecedor']});
+    prato.fornecedor = usuario;
+    connection.manager.save(prato).then(f => {
+      res.send({"sucesso": true, "prato": f});
     }).catch(err => {
-      res.send({"sucesso": false});
+      res.send({"sucesso": false, "mensagem": err});
     });
   }
 }

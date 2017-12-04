@@ -2,6 +2,7 @@ import {Index,Entity, PrimaryColumn, Column, OneToOne, OneToMany, ManyToOne, Joi
 import {Usuario} from './Usuario'
 import {Item} from './Item'
 import {Pedido} from './Pedido'
+import {Prato} from './Prato'
 
 
 @Entity()
@@ -41,7 +42,8 @@ export class Fornecedor {
     @OneToMany(type=>Item, items=>items.IdFornecedor)
     items:Item[];
     
-
+    @OneToMany(type=>Prato, pratos=>pratos.fornecedor)
+    pratos:Prato[];
    
     @OneToMany(type=>Pedido, pedidos=>pedidos.IdFornecedor)
     pedidos:Pedido[];

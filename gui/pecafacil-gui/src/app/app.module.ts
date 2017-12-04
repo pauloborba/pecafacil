@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { PratoComponent } from './prato/prato.component';
 import { LoginComponent } from './login/login.component';
 
+import { LoginService } from './services/login.service';
+import { ApiService } from './services/api.service';
+import { AuthGuard } from './guards/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoginService, ApiService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
