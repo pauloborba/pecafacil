@@ -5,6 +5,7 @@ export class UsuarioRouter {
   router: Router;
   usuarioController: UsuarioController;
 
+
   /**
    * Initialize the HeroRouter
    */
@@ -14,7 +15,7 @@ export class UsuarioRouter {
     this.init();
   }
 
-  
+
 
   /**
    * Take each handler, and attach to one of the Express.Router's
