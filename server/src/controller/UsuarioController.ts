@@ -9,7 +9,7 @@ export class UsuarioController {
    */
   public async getAll(req: Request, res: Response, next: NextFunction) {
     const connection: Connection = getConnection();
-    let usuarios = await connection.manager.find(Usuario);
+    let usuarios = await connection.manager.find(Usuario, req.query);
     res.send(usuarios);
   }
 
@@ -24,14 +24,10 @@ export class UsuarioController {
    * Insert Usuario.
    */
   public async insert(req: Request, res: Response, next: NextFunction) {
-    let usuario: Usuario = new Usuario();
-    usuario.Nome = req.body['Nome'] ? req.body['Nome'] : '';
-    usuario.Login = req.body['Login'] ? req.body['Login'] : '';
-    usuario.Senha = req.body['Senha'] ? req.body['Senha'] : '';
-    usuario.Telefone = req.body['Telefone'] ? req.body['Telefone'] : '';
+    let usuario: Usuario = Helper.createInstanceFromJson(Usuario, req.body);
     const connection: Connection = getConnection();
     connection.manager.save(usuario).then(u => {
-      res.send({"sucesso": true, "usuario": u.Id});
+      res.send({"sucesso": true, "usuario": u});
     }).catch(err => {
       res.send({"sucesso": false});
     });

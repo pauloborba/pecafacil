@@ -7,7 +7,7 @@ export class PedidoController{
 
   public async getAll(req: Request, res: Response, next: NextFunction) {
     const connection: Connection = getConnection();
-    let pedidos = await connection.manager.find(Pedido);
+    let pedidos = await connection.manager.find(Pedido, req.query);
     res.send(pedidos);
   }
 

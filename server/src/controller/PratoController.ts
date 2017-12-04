@@ -7,7 +7,7 @@ export class PratoController{
 
   public async getAll(req: Request, res: Response, next: NextFunction) {
     const connection: Connection = getConnection();
-    let pratos = await connection.manager.find(Prato);
+    let pratos = await connection.manager.find(Prato, req.query);
     res.send(pratos);
   }
 

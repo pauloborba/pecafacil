@@ -4,6 +4,7 @@ import {Fornecedor} from './Fornecedor'
 
 
 @Entity()
+@Index("Login",["Login",],{unique:true})
 export class Usuario {
 
 
@@ -43,12 +44,12 @@ export class Usuario {
     Telefone:string;
     
    
-    @OneToMany(type=>Cliente, clientes=>clientes.IdUsuario)
+    @OneToMany(type=>Cliente, clientes=>clientes.Usuario)
     clientes:Cliente[];
     
 
    
-    @OneToMany(type=>Fornecedor, fornecedors=>fornecedors.IdUsuario)
+    @OneToMany(type=>Fornecedor, fornecedors=>fornecedors.Usuario)
     fornecedors:Fornecedor[];
     
 }

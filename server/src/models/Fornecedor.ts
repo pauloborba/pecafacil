@@ -6,7 +6,6 @@ import {Pedido} from './Pedido'
 
 @Entity()
 @Index("CNPJ",["CNPJ",],{unique:true})
-@Index("IdUsuario",["IdUsuario",])
 export class Fornecedor {
 
 
@@ -19,9 +18,9 @@ export class Fornecedor {
         
 
    
-    @ManyToOne(type=>Usuario, IdUsuario=>IdUsuario.fornecedors)
-    @JoinColumn()
-    IdUsuario:Usuario;
+    @ManyToOne(type=>Usuario, Usuario=>Usuario.fornecedors, { eager: true })
+    @JoinColumn({name: "IdUsuario"})
+    Usuario:Usuario;
     
 
     @Column("varchar",{ 

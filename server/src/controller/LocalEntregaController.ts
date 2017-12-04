@@ -7,7 +7,7 @@ export class LocalEntregaController{
 
   public async getAll(req: Request, res: Response, next: NextFunction) {
     const connection: Connection = getConnection();
-    let locaisEntrega = await connection.manager.find(LocalEntrega);
+    let locaisEntrega = await connection.manager.find(LocalEntrega, req.query);
     res.send(locaisEntrega);
   }
 

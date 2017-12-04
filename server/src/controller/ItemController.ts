@@ -7,7 +7,7 @@ export class ItemController{
 
   public async getAll(req: Request, res: Response, next: NextFunction) {
     const connection: Connection = getConnection();
-    let itens = await connection.manager.find(Item);
+    let itens = await connection.manager.find(Item, req.query);
     res.send(itens);
   }
 
