@@ -3,7 +3,7 @@
   "description": "Testes de aceitação do peça fácil",
   "scripts": {
     "tsc": "tsc",
-    "test": "node_modules/typescript/bin/tsc && protractor typeScript/config/config.js",
+    "test": "node_modeules/protractor/bin/protractor typeScript/config/config.js",
     "webdriver-update": "webdriver-manager update",
     "webdriver-start": "webdriver-manager start"
   },

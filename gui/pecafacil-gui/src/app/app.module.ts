@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-router';
 
 import { AppComponent } from './app.component';
 import { PratoComponent } from './prato/prato.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 import { LoginService } from './services/login.service';
@@ -16,7 +17,8 @@ import { AuthGuard } from './guards/auth.guard';
   declarations: [
     AppComponent,
     PratoComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
