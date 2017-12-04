@@ -7,13 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PratoComponent implements OnInit {
 
-	prato = [{
-		nome: 'Quentinha tradicional',
-		valor: '10 reais',
-		descricao: 'Frango acebolado',
-		itens: 'Feijão, Arroz, Frango acebolado',
-		tamanho: 'Medio'
-	}];
+	prato = [];
 
   constructor() { }
   
@@ -21,16 +15,24 @@ export class PratoComponent implements OnInit {
   	let nome : any = document.getElementById('nome');
   	let valor : any = document.getElementById('valor');
   	let descricao : any = document.getElementById('descricao');
+  	let dropItem : any = document.getElementById('dropItem');
+  	let dropTam : any = document.getElementById('dropTam');
 
   	console.log(nome.value);
   	this.prato.push({
 		nome: nome.value,
 		valor: valor.value,
 		descricao: descricao.value,
-		itens: 'Feijão, Arroz, Frango acebolado',
-		tamanho: 'Medio'
+		itens: dropItem.value,
+		tamanho: dropTam.value
 	});
   }
+
+  public deletePrato(id){
+  	this.prato.splice(id,1);
+  }
+
+  public editPrato(id){}
 
   ngOnInit() {
 

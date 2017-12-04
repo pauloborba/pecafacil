@@ -16,38 +16,38 @@
 				<td><input type="number" id="valor" class="form-control"></td>
 				<td><input type="text" id="descricao" class="form-control"></td>
 				<td>
-					<div class="dropdown show">
-						<a class = "btn btn-default dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="itens">Escolher os itens</a>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<button class="dropdown-item">Feijão</button>
-							<button class="dropdown-item">Arroz</button>	
-							<button class="dropdown-item">Macarrão</button>
-							<button class="dropdown-item">Frango</button>							
-						</div>
+					<div class="col-md-13" >
+				      <select class="form-control" id="dropItem">
+				        <option class="dropdown-header">Item</option>
+				        <option>Feijão</option>
+				        <option>Arroz</option>
+				        <option>Macarrão</option>
+				        <option>Purê</option>
+				      </select>
 					</div>
 				</td>
 				<td>
-					<div class="dropdown show">
-						<a class = "btn btn-default dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="itens">Tamanho</a>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							<button class="dropdown-item">Pequeno</button>
-							<button class="dropdown-item">Medio</button>	
-							<button class="dropdown-item">Grande</button>						
-						</div>
+					<div class="col-md-13"  >
+				      <select class="form-control" id="dropTam">
+				        <option class="dropdown-header">Tamanho</option>
+				        <option>Pequeno</option>
+				        <option>Médio</option>
+				        <option>Grande</option>
+				      </select>
 					</div>
 				</td>
 				<td><a (click)="addPrato()" class="fa fa-plus plus" aria-hidden="true">
 				</a></td>
 			</tr>
-			<tr *ngFor = "let a of prato">
+			<tr *ngFor = "let a of prato; let i = index">
 				<td>{{a.nome}}</td>
 				<td>{{a.valor}}</td>
 				<td>{{a.descricao}}</td>
 				<td>{{a.itens}}</td>
 				<td>{{a.tamanho}}</td>
 				<td>
-					<a class="fa fa-trash-o icon-trash icon" aria-hidden="true"></a>
-					<a class="fa fa-pencil icon-pencil icon" aria-hidden="true"></a>
+					<a (click)="deletePrato(i)" class="fa fa-trash-o icon-trash icon" aria-hidden="true" id="edit"></a>
+					<a (click)="editPrato()" class="fa fa-pencil icon-pencil icon" aria-hidden="true" id="delete"></a>
 				</td>
 			</tr>
 		</tbody>
