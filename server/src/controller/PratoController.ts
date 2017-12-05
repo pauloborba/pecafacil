@@ -19,6 +19,14 @@ export class PratoController{
     res.send({"Prato": prato});
   }
 
+    public async delete(req: Request, res: Response, next: NextFunction) {
+      let id = req.params.id;
+      let repository = getConnection().getRepository(Prato);
+      let prato = await repository.findOneById(id);
+      await repository.remove(prato);
+      res.send({"sucesso": true});
+    }
+
   /**
    * Insert Prato.
    */

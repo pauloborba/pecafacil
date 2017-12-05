@@ -40,7 +40,6 @@ export class PratoComponent implements OnInit {
 
   async ngOnInit() {
 		this.pratos = await this.apiService.getPratos();
-		console.log(this.pratos);
   }
 
 }

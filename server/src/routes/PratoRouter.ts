@@ -26,6 +26,7 @@ export class PratoRouter {
     this.router.get('/', this.pratoController.getAll);
     this.router.get('/:id', this.pratoController.getById);
     this.router.post('/', this.pratoController.insert);
+    this.router.delete('/:id', this.pratoController.delete);
   }
 
 }

@@ -4,9 +4,9 @@ I want to cadastrar o menu
 So that os clientes possam escolher os pratos do menu
 
 Scenario: Cadastro de pratos
-Given O sistema não possui armazenado o prato “quentinha tradicional”
-When O fornecedor solicita o cadastro do prato “quentinha tradicional” com a descrição “feijão, arroz, macarrão, farofa e bife acebolado” com o número de porções diária “10”
-Then O sistema armazena o prato “quentinha tradicional” com a descrição “feijão, arroz, macarrão, farofa e bife acebolado” com número de porções diária “10” 
+Given O usuario esta na pagina de pratos
+When O fornecedor solicita o cadastro do prato "quentinha tradicional" com a descrição "bife acebolado" com o item "feijão" com o tamanho de "p"
+Then O prato e visualizado numa tabela "quentinha tradicional" com a descrição "bife acebolado" com o item "feijao" com tamanho "P" 
 
 Scenario: Erro do cadastro de pratos
 Given O sistema possui armazenado o prato “quentinha tradicional”

@@ -19,7 +19,6 @@ export class Pedido {
         primary:true, 
         })
     Id:number;
-        
 
    
     @ManyToOne(type=>Cliente, IdCliente=>IdCliente.pedidos)
