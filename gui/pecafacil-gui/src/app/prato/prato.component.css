@@ -1,0 +1,30 @@
+#colunas{
+	text-align: center;
+}
+
+.plus{
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	font-size: 30px;
+}
+
+.icon {
+	width: 40%;
+	height: 100%;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.icon-trash{
+	text-align:left;
+}
+
+.icon-pencil{
+	text-align: right;
+}
+
+#inputState{
+	margin: 0px;
+}
+
